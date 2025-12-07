@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Warp Tunnel</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="travelScreen">
+
+    <!-- STARFIELD -->
+    <canvas id="starCanvas"></canvas>
+
+    <!-- WARP STATUS -->
+    <div class="warpWrapper">
+        <h1 id="warpTitle">WARP SEQUENCE INITIATED</h1>
+        <p id="warpYear">Destination Year: --</p>
+        <p id="warpPhase">Calibrating temporal engines...</p>
+    </div>
+
+    <!-- WARP LINES -->
+    <div class="warpStreaks"></div>
+
+    <script src="script.js"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            startWarpSequence();
+        });
+    </script>
+
+</body>
+</html>

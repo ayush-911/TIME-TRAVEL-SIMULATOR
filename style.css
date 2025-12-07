@@ -1,0 +1,293 @@
+/* GLOBAL RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Orbitron', sans-serif;
+}
+
+body {
+    overflow: hidden;
+    background: black;
+    color: white;
+}
+
+/* STARFIELD CANVAS */
+#starCanvas {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+}
+
+/* HUD TOP */
+.hudTop {
+    position: fixed;
+    top: 18px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 26px;
+    font-size: 14px;
+    color: #66eaff;
+    text-shadow: 0 0 8px #00eaff;
+    z-index: 5;
+    opacity: 0.8;
+    letter-spacing: 1px;
+}
+
+/* HUD SIDES */
+.hudLeft, .hudRight {
+    position: fixed;
+    top: 80px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    z-index: 5;
+}
+.hudLeft { left: 25px; }
+.hudRight { right: 25px; }
+
+.hudPanel {
+    background: rgba(0,20,35,0.45);
+    padding: 10px 14px;
+    border-left: 2px solid #00eaff88;
+    font-size: 13px;
+    color: #9feeff;
+    backdrop-filter: blur(5px);
+    width: 160px;
+}
+
+.hudValue {
+    color: #00eaff;
+    text-shadow: 0 0 6px #00eaff;
+}
+
+/* PORTAL AREA */
+.portalWrap {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 4;
+}
+
+/* PORTAL GLOW RINGS */
+.portalRing {
+    position: absolute;
+    border-radius: 50%;
+    border: 2px solid #00eaff44;
+    animation: spin 12s linear infinite;
+}
+
+.portalRing.outer {
+    width: 900px;
+    height: 900px;
+    animation-duration: 20s;
+}
+
+.portalRing.inner {
+    width: 550px;
+    height: 550px;
+    animation-duration: 12s;
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
+}
+
+/* PORTAL PANEL */
+.portalPanel {
+    background: rgba(0, 20, 35, 0.3);
+    padding: 40px;
+    border: 2px solid #00eaff55;
+    border-radius: 20px;
+    width: 500px;
+    text-align: center;
+    backdrop-filter: blur(8px);
+    box-shadow: 0 0 25px #00eaff55;
+    z-index: 5;
+}
+
+.portalTitle {
+    font-size: 32px;
+    color: #a8f9ff;
+    text-shadow: 0 0 14px #00eaff;
+}
+
+.portalHint {
+    color: #89eaff;
+    margin-top: 5px;
+    margin-bottom: 25px;
+}
+
+/* INPUT ROW */
+.inputRow {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+}
+
+.inputRow input {
+    width: 200px;
+    padding: 12px;
+    border: 1px solid #00eaff55;
+    background: rgba(0,0,0,0.4);
+    color: #aafaff;
+    font-size: 18px;
+    outline: none;
+    border-radius: 8px;
+}
+
+#jumpBtn {
+    padding: 12px 25px;
+    background: #00eaff;
+    color: #003744;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 0 15px #00eaff;
+}
+#jumpBtn:hover {
+    box-shadow: 0 0 30px #00eeff;
+}
+
+/* SMALL TEXT */
+.smallText {
+    margin-top: 15px;
+    font-size: 13px;
+    color: #9feeff;
+}
+
+.pulseDot {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    background: #00eaff;
+    border-radius: 50%;
+    margin-right: 5px;
+    animation: pulse 1s infinite alternate;
+}
+@keyframes pulse {
+    from { opacity: 0.3; }
+    to   { opacity: 1; }
+}
+
+/* WARP OVERLAY */
+#warpOverlay {
+    position: fixed;
+    inset: 0;
+    background: radial-gradient(circle, #00121d, #000);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 20;
+}
+
+#warpText {
+    font-size: 40px;
+    color: #a8f9ff;
+    margin-bottom: 20px;
+    text-shadow: 0 0 20px #00eaff;
+}
+
+.warpLines {
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(
+        transparent,
+        transparent 20px,
+        rgba(0,255,255,0.15) 22px
+    );
+    animation: warpMove 0.08s linear infinite;
+}
+
+@keyframes warpMove {
+    from { background-position-y: 0; }
+    to   { background-position-y: 22px; }
+}
+/* ERA BACKGROUND */
+.eraBackground {
+    position: fixed;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    z-index: -2;
+    opacity: 0.25;
+}
+
+/* CENTER THE ERA CONTENT */
+.eraWrapper {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+/* CONTENT BOX */
+.eraContent {
+    background: rgba(0, 15, 30, 0.7);
+    padding: 40px;
+    border-radius: 20px;
+    width: 60%;
+    max-width: 700px;
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(0, 200, 255, 0.4);
+    animation: fadeIn 0.8s ease;
+}
+
+/* BUTTONS */
+.eraBtn {
+    background: #00eaff;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 10px;
+    margin: 10px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.eraBtn:hover {
+    background: #009cb8;
+    transform: scale(1.1);
+}
+
+.returnBtn {
+    background: #ff4d4d;
+}
+
+.returnBtn:hover {
+    background: #d12d2d;
+}
+
+/* POPUP */
+.eventPopup {
+    position: fixed;
+    inset: 0;
+    display: none;
+    background: rgba(0,0,0,0.7);
+    justify-content: center;
+    align-items: center;
+}
+
+.eventBox {
+    background: #002c3a;
+    padding: 25px;
+    border-radius: 12px;
+    min-width: 300px;
+    text-align: center;
+    color: white;
+    border: 2px solid #00eaff;
+}
+
+/* FADE-IN ANIMATION */
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.9);}
+    to { opacity: 1; transform: scale(1);}
+}

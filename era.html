@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Timeline Era</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body class="eraScreen">
+
+    <!-- STARFIELD -->
+    <canvas id="starCanvas"></canvas>
+
+    <!-- FULLSCREEN BACKGROUND HOLDER -->
+    <div id="eraBg" class="eraBackground"></div>
+
+    <!-- CENTERED CONTENT -->
+    <div class="eraWrapper">
+        <div class="eraContent">
+            <h1 id="eraTitle">Loading...</h1>
+            <p id="eraDescription">Please wait...</p>
+
+            <button id="randomEventBtn" class="eraBtn">Random Event</button>
+            <button id="returnBtn" class="eraBtn returnBtn">Return Home</button>
+        </div>
+    </div>
+
+    <!-- POPUP -->
+    <div id="eventPopup" class="eventPopup">
+        <div class="eventBox">
+            <h2>Random Event</h2>
+            <p id="eventText"></p>
+            <button id="closeEvent">Close</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script> renderEra(); </script>
+
+</body>
+</html>

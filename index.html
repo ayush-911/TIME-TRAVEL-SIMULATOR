@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Time Portal Gate</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="homeScreen">
+
+    <!-- STARFIELD -->
+    <canvas id="starCanvas"></canvas>
+
+    <!-- HUD TOP BAR -->
+    <div class="hudTop">
+        <span>🛸 STARSHIP CHRONOS • SYSTEM ONLINE</span>
+        <span id="systemClock">--:--:--</span>
+    </div>
+
+    <!-- HUD LEFT -->
+    <div class="hudLeft">
+        <div class="hudPanel">Engine Temp: <span class="hudValue">Stable</span></div>
+        <div class="hudPanel">Shield Status: <span class="hudValue">97%</span></div>
+        <div class="hudPanel">Portal Sync: <span class="hudValue">Locked</span></div>
+    </div>
+
+    <!-- HUD RIGHT -->
+    <div class="hudRight">
+        <div class="hudPanel">Sector: <span class="hudValue">Alpha-9</span></div>
+        <div class="hudPanel">Stabilizers: <span class="hudValue">Calibrated</span></div>
+        <div class="hudPanel">Fuel Cells: <span class="hudValue">83%</span></div>
+    </div>
+
+    <!-- TIME PORTAL -->
+    <div class="portalWrap">
+        <div class="portalRing outer"></div>
+        <div class="portalRing inner"></div>
+
+        <div class="portalPanel" id="portalPanel">
+            <h1 class="portalTitle">ENTER TIME PORTAL</h1>
+            <p class="portalHint">Type a year (1500–2025) and engage the gate</p>
+
+            <div class="inputRow">
+                <input id="yearInput" type="number" min="1500" max="2025" placeholder="e.g. 1947">
+                <button id="jumpBtn">ENGAGE</button>
+            </div>
+
+            <div class="smallText">
+                <span class="pulseDot"></span> Stabilizers online — warp ready
+            </div>
+        </div>
+    </div>
+
+    <!-- WARP ANIMATION -->
+    <div id="warpOverlay">
+        <div id="warpText">JUMPING...</div>
+        <div class="warpLines"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
